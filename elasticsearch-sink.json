@@ -8,7 +8,7 @@
     "value.converter.schema.registry.url": "http://schema-registry:8081",
     "topics": "temperature-humidity",
     "connection.url": "http://elasticsearch:9200",
-    "key.ignore": "false",
+    "key.ignore": "true",
     "schema.ignore": "false",
     "type.name": "temperature-humidity",
     "name": "elasticsearch-sink"
