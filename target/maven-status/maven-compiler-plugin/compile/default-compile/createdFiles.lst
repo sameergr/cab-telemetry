@@ -1,0 +1,4 @@
+com/telemetry/info/avro/SensorReadingV1.class
+com/telemetry/info/IotTelemetryApplication.class
+com/telemetry/info/runner/StartUpAction.class
+com/telemetry/info/avro/SensorReadingV1$Builder.class
