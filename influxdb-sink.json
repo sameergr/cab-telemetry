@@ -1,0 +1,17 @@
+{
+  "name": "influxdb-sink-connector",
+  "config": {
+    "connector.class": "io.confluent.influxdb.InfluxDBSinkConnector",
+    "tasks.max": "1",
+    "topics": "temperature-humidity-influx",
+    "influxdb.url": "http://influxdb:8086",
+    "influxdb.db": "1427f2f8e5dc3dfe",
+    "influxdb.org": "myorg",
+    "influxdb.token": "Np4rCgnmtF87bJZvpXGT34c5TzdSk93rK83jQcpnXBKWCiGSmV3pg-5nRX5Onn7gXpt9cuLI0LX0gjtzUbUHdw==",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter.schema.registry.url": "http://schema-registry:8081",
+    "key.ignore": "true",
+    "schema.ignore": "false"
+  }
+}

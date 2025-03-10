@@ -1,0 +1,20 @@
+{
+  "namespace": "com.telemetry.info.avro",
+  "type": "record",
+  "name": "SensorReadingInfluxV1",
+  "fields": [
+    {"name": "measurement", "type": "string"},
+    {
+      "name": "tags",
+      "type": {
+        "type": "record",
+        "name": "TagsRecord",
+        "fields": [
+          {"name": "host", "type": "string"}
+        ]
+      }
+    },
+    {"name": "celcius", "type": "float"},
+    {"name": "humidity", "type": "float"}
+  ]
+}

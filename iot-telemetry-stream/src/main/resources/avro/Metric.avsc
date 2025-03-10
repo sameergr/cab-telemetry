@@ -1,0 +1,11 @@
+{
+  "namespace": "com.telemetry.info.avro",
+  "type": "record",
+  "name": "SensorReadingV1",
+  "fields": [
+    {"name": "host", "type": "string"},
+    {"name": "timestamp", "type": {"type": "long",  "logicalType": "timestamp-nanos"}},
+    {"name": "celcius", "type": "float"},
+    {"name": "humidity", "type": "float"}
+  ]
+}
