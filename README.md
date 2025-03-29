@@ -1,10 +1,20 @@
 # Read Me First
-The following was discovered as part of building this project:
+This Project is an ETL (Extract, Transform & Load) for Cab Location tracking and represent data in Kibana Dashboard for analytics.
 
-* The original package name 'com.telemetry.info.iot-telemetry' is invalid and this project uses 'com.telemetry.info.iot_telemetry' instead.
+![Dashboard Preview](img/cab-location-project.png)
+
+# Tech Stack Used
+Java 23, Spring Boot 3.4, Kafka(Broker, Kafka Connect, Schema Registry for AVRO)
 
 # Getting Started
+Build project first by using below command
+mvn clean install -DskipTests
 
+# Sequence of project
+1. (Expose Api) Start cab-location-service to expose rest api that return cab location payload.
+2. (Extract) Start cab-feed which is scheduler that capture data from cab-location-service and push to kafka.
+3. (Transform) Start cab-stream which will stream data from topic, transform it and push it to another kafka topic.
+4. (Load) Execute elasticsearch-sink.json to load data from topic to elastic search.
 
 ### Before ingesting data into elastic search create mapping and add a new field of type geo_point and map with location field
 PUT /live-cab-position-enriched
