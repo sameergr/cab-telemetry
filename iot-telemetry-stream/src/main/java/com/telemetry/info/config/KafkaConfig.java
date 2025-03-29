@@ -1,11 +1,13 @@
 package com.telemetry.info.config;
 
 import com.telemetry.info.constants.KafkaConstants;
+import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.kafka.streams.StreamsConfig;
 
 import java.util.Properties;

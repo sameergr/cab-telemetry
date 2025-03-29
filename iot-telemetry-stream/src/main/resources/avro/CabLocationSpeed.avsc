@@ -1,0 +1,24 @@
+{
+  "namespace": "com.telemetry.info.avro",
+  "type": "record",
+  "name": "CabLocationSpeed",
+  "fields": [
+    {"name": "id", "type": "int"},
+    {"name": "timestamp", "type": "long", "logicalType": "timestamp-millis"},
+    {
+      "name": "location",
+      "type": {
+        "type": "record",
+        "name": "Location",
+        "fields": [
+          {"name": "lat", "type": "double"},
+          {"name": "lon", "type": "double"}
+        ]
+      }
+    },
+    {"name": "bearing", "type": "double"},
+    {"name": "milesPerHour", "type": "double"},
+    {"name": "h3", "type": ["null","string"], "default": null},
+    {"name": "geohash", "type": "string"}
+  ]
+}

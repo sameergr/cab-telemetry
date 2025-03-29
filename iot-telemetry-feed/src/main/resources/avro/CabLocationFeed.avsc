@@ -1,0 +1,21 @@
+{
+  "namespace": "com.telemetry.info.avro",
+  "type": "record",
+  "name": "CabLocationFeed",
+  "fields": [
+    {"name": "id", "type": "int"},
+    {"name": "timestamp", "type": "long", "logicalType": "timestamp-millis"},
+    {
+      "name": "location",
+      "type": {
+        "type": "record",
+        "name": "Location",
+        "fields": [
+          {"name": "longitude", "type": "double"},
+          {"name": "latitude", "type": "double"}
+        ]
+      }
+    },
+    {"name": "bearing", "type": "double"}
+  ]
+}

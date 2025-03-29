@@ -1,31 +1,48 @@
 package com.telemetry.info.cron;
 
-import com.telemetry.info.avro.SensorReadingV1;
+import com.telemetry.info.avro.CabLocationFeed;
+import com.telemetry.info.avro.Location;
+import com.telemetry.info.model.CabPosition;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClient;
 
-import java.util.Calendar;
+import java.util.List;
+import java.util.Optional;
 
 @Component
 public class SensorReading {
 
     @Autowired
-    private KafkaTemplate<String, SensorReadingV1> kafkaTemplate;
+    private KafkaTemplate<String, CabLocationFeed> kafkaTemplate;
 
-    @Scheduled(cron = "*/2 * * * * *") // every 2 seconds
+    @Scheduled(cron = "*/5 * * * * *") // every 2 seconds
     public void readSensorData(){
-        // create Avro sensor reading object
-        SensorReadingV1 sensorReadingAvro = SensorReadingV1.newBuilder()
-                .setHost("0.0.0.1")
-                .setTimestamp(Calendar.getInstance().getTimeInMillis())
-                .setCelcius(21)
-                .setHumidity(11)
-                .build();
 
-        // send Avro message to Kafka
-        kafkaTemplate.send("temperature-humidity", sensorReadingAvro);
+        String URL = "http://localhost:8089/api/cabs/locations";
+        RestClient restClient = RestClient.create();
+        List<CabPosition> result = restClient.get().uri(URL).retrieve().body(new ParameterizedTypeReference<List<CabPosition>>() {});
+
+        Optional.ofNullable(result).ifPresent( cabPositions -> {
+            // create Avro cab location reading object
+            cabPositions.stream().map(this::convertToCabPosition).forEach(cabLocation -> {
+                // send Avro message to Kafka
+                kafkaTemplate.send("live-cab-position", cabLocation);
+            });
+        });
     }
+
+    private CabLocationFeed convertToCabPosition(CabPosition cabPosition){
+        CabLocationFeed cabLocation = new CabLocationFeed();
+        cabLocation.setId(cabPosition.id());
+        cabLocation.setTimestamp(cabPosition.timestamp());
+        Location location = new Location(cabPosition.longitude(), cabPosition.latitude());
+        cabLocation.setLocation(location);
+        return cabLocation;
+    }
+
 
 }

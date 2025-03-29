@@ -10,7 +10,6 @@
     <artifactId>iot-telemetry-stream</artifactId>
     <packaging>jar</packaging>
     <name>iot-telemetry-stream</name>
-    <url>http://maven.apache.org</url>
     <description>Spring Boot Project for Telemetry with Kafka</description>
 
     <properties>
@@ -53,7 +52,16 @@
             <version>2.0.16</version>
             <scope>runtime</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.uber</groupId>
+            <artifactId>h3</artifactId>
+            <version>3.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.hsr</groupId>
+            <artifactId>geohash</artifactId>
+            <version>1.4.0</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
