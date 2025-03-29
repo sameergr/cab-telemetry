@@ -12,15 +12,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.telemetry.info</groupId>
-	<artifactId>iot-telemetry</artifactId>
+	<artifactId>cab-telemetry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>iot-telemetry</name>
+	<name>Cab Telemetry Service</name>
 	<description>Spring Boot Project for Telemetry with Kafka</description>
 
 	<modules>
-		<module>iot-telemetry-feed</module>
-		<module>iot-telemetry-stream</module>
+		<module>cab-feed</module>
+		<module>cab-stream</module>
         <module>cab-location-service</module>
     </modules>
 

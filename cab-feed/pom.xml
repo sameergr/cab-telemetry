@@ -4,30 +4,17 @@
 
 	<parent>
 		<groupId>com.telemetry.info</groupId>
-		<artifactId>iot-telemetry</artifactId>
+		<artifactId>cab-telemetry</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>iot-telemetry-feed</artifactId>
+	<artifactId>cab-feed</artifactId>
 	<packaging>jar</packaging>
-	<name>iot-telemetry</name>
+	<name>Cab Feed Service</name>
 	<description>Spring Boot Project for Telemetry with Kafka</description>
 
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>23</java.version>

@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.telemetry.info</groupId>
-        <artifactId>iot-telemetry</artifactId>
+        <artifactId>cab-telemetry</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>iot-telemetry-stream</artifactId>
+    <artifactId>cab-stream</artifactId>
     <packaging>jar</packaging>
-    <name>iot-telemetry-stream</name>
+    <name>Cab Stream Service</name>
     <description>Spring Boot Project for Telemetry with Kafka</description>
 
     <properties>
