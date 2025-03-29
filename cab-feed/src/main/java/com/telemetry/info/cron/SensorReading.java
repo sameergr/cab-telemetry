@@ -19,7 +19,7 @@ public class SensorReading {
     @Autowired
     private KafkaTemplate<String, CabLocationFeed> kafkaTemplate;
 
-    @Scheduled(cron = "*/5 * * * * *") // every 2 seconds
+    @Scheduled(cron = "*/5 * * * * *") // every 5 seconds
     public void readSensorData(){
 
         String URL = "http://localhost:8089/api/cabs/locations";
